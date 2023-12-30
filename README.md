@@ -17,11 +17,11 @@
 </p>
 
 <p>
-  GP2040-CE (Community Edition) is a gamepad firmware for the Raspberry Pi Pico and other boards based on the RP2040 microcontrollers that combines multi-platform compatibility, low latency and a rich feature set to provide endless customization possibilities without sacrificing performance.
+  GP2040-CE (Community Edition) is a gamepad firmware for the Raspberry Pi Pico and other boards based on RP2040 microcontrollers. GP2040-CE combines multi-platform compatibility, low latency and a rich feature set to provide endless customization possibilities without sacrificing performance.
 </p>
 
 <p>
-  GP2040-CE is compatible with PC, PS3 and PS4, Nintendo Switch, Steam Deck, MiSTer and Android.
+  GP2040-CE is compatible with PC, PS3 and PS4, Nintendo Switch, Steam Deck, MiSTer, Android, and many other game consoles.
 </p>
 
 ## Links
@@ -41,7 +41,7 @@ Full documentation can be found at [https://gp2040-ce.info](https://gp2040-ce.in
 - [Turbo and Turbo LED](https://gp2040-ce.info/add-ons/turbo) with selectable speed
 - Per-button RGB LED support.
 - PWM Player indicator LED support (XInput only).
-- Multiple LED profiles support.
+- Support for Multiple LED profiles.
 - Support for 128x64 monochrome I2C displays - SSD1306, SH1106, and SH1107 compatible.
 - Custom startup splash screen and easy image upload via web configuration.
 - Support for passive buzzer speaker (3v or 5v).
@@ -51,7 +51,7 @@ Visit the [GP2040-CE Usage](https://gp2040-ce.info/usage) page for more details.
 
 ## Performance
 
-Input latency is tested using the methodology outlined at [WydD's inputlag.science website](https://inputlag.science/controller/methodology), using the default 1000 Hz (1 ms) polling rate in the firmware.  You can read more about the setup we use to conduct latency testing [HERE](https://raw.githubusercontent.com/OpenStickCommunity/GP2040-CE/main/site/latency_tests/readme.md) if you are interested in testing for yourself or would just like to know more about the devices used to do the testing.
+Input latency is tested using the methodology outlined at [WydD's inputlag.science website](https://inputlag.science/controller/methodology), using the default 1000 Hz (1 ms) polling rate in the firmware.  If you are interested in testing for yourself, or would just like to know more about the devices used to do the testing, you can read more about the setup we use to conduct latency testing [HERE](https://raw.githubusercontent.com/OpenStickCommunity/GP2040-CE/main/site/latency_tests/readme.md).
 
 | Version | Mode                   | Poll Rate | Min     | Max     | Avg     | Stdev   | % on time | %1f skip | %2f skip |
 | ------- | ---------------------- | --------- | ------- | ------- | ------- | ------- | --------- | -------- | -------- |
@@ -67,7 +67,7 @@ Previous results from v0.7.5 and earlier can be found in the [GP2040-CE v0.7.5 (
 
 ## Support
 
-If you would like to discuss features, issues or anything else related to GP2040-CE please [create an issue](https://github.com/OpenStickCommunity/GP2040-CE/issues/new) or join the [OpenStick GP2040-CE Discord](https://discord.gg/k2pxhke7q8) support channel.
+If you would like to discuss features, issues or anything else related to GP2040-CE, please [create an issue](https://github.com/OpenStickCommunity/GP2040-CE/issues/new) or join the [OpenStick GP2040-CE Discord](https://discord.gg/k2pxhke7q8) support channel.
 
 ## Contributing
 
