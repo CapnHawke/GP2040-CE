@@ -25,7 +25,7 @@ struct GamepadButtonMapping
 		buttonMask(bm)
 	{}
 
-	uint32_t pinMask;
+	Mask_t pinMask;
 	const uint32_t buttonMask;
 };
 
@@ -73,6 +73,13 @@ public:
 	}
 
 	/**
+	 * @brief Check for a raw, physical dpad press. Unaffected by macros, SOCD, or D-pad modes. Typically used for hotkey detection.
+	 */
+	inline bool __attribute__((always_inline)) pressedDpadPhysical(const uint8_t mask) {
+		return (state.dpadOriginal & mask) == mask;
+	}
+
+	/**
 	 * @brief Check for an aux button press. Same idea as `pressedButton`.
 	 */
 	inline bool __attribute__((always_inline)) pressedAux(const uint16_t mask) {
@@ -82,9 +89,9 @@ public:
 	/**
 	 * @brief Check for a hotkey combination press. Checks aux, buttons, and dpad.
 	 */
-	inline bool __attribute__((always_inline)) pressedHotkey(const HotkeyEntry hotkey) {
+	inline bool __attribute__((always_inline)) pressedHotkey(const HotkeyEntry &hotkey) {
 		return (hotkey.action != 0 && pressedButton(hotkey.buttonsMask) &&
-				pressedDpad(hotkey.dpadMask) && pressedAux(hotkey.auxMask));
+				pressedDpadPhysical(hotkey.dpadMask) && pressedAux(hotkey.auxMask));
 	}
 
 	/**
@@ -192,7 +199,7 @@ public:
 
 	// gamepad specific proxy of debounced buttons --- 1 = active (inverse of the raw GPIO)
 	// see GP2040::debounceGpioGetAll for details
-	Mask_t debouncedGpio;
+	Mask_t debouncedGpio = 0;
 
 	uint32_t lastReinitProfileNumber = 0;
 
@@ -201,6 +208,8 @@ public:
 		return (options.socdMode == SOCD_MODE_BYPASS &&
 				(options.inputMode == INPUT_MODE_PS3 ||
 				options.inputMode == INPUT_MODE_SWITCH ||
+				options.inputMode == INPUT_MODE_SWITCH_PRO ||
+				options.inputMode == INPUT_MODE_SWITCH2_PRO ||
 				options.inputMode == INPUT_MODE_NEOGEO ||
 				options.inputMode == INPUT_MODE_PS4)) ?
 			SOCD_MODE_NEUTRAL : options.socdMode;

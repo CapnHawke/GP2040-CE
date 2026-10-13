@@ -19,9 +19,9 @@ public:
     InputMode getInputMode(){ return inputMode; }
     bool isConfigMode(){ return (inputMode == INPUT_MODE_CONFIG); }
 private:
-    DriverManager() {}
-    GPDriver * driver;
-    InputMode inputMode;
+    DriverManager() = default;
+    GPDriver * driver = nullptr;
+    InputMode inputMode = INPUT_MODE_XINPUT;
 };
 
 #endif
